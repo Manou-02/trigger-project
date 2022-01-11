@@ -1,5 +1,77 @@
-@extends('layout.layout')
+<div class="">
+    <div class="w-1/4">
+        <div class="mt-24 mx-5 font-bold text-slate-400 text-xl">
+            <span>Dashboard</span>
+        </div>
+        <div class="">
+            <ul class="list-none ml-8 my-5 text-zinc-700 cursor-pointer">
+                <a href="">
+                    <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2 active">
+                        <i class="fas fa-home"></i>
+                        <span class="ml-4 text-lg font-normal">Accueil</span>
+                    </li>
+                </a>
 
-@section('content')
+                <a href="">
+                    <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2">
+                        <i class="fas fa-users"></i>
+                        <span class="ml-4 text-lg font-normal">Client</span>
+                    </li>
+                </a>
+                <li class="flex items-center -ml-3 mt-10 font-bold text-slate-400 text-base">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span class="pl-4">Opérations</span>
+                </li>
+                <ul>
+                    <a href="">
+                        <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2">
+                            <i class="fas fa-download"></i>
+                            <span class="ml-4 text-lg font-normal">Versement</span>
+                        </li>
+                    </a>
 
-@endsection
+                    <a href="">
+                        <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2">
+                            <i class="fas fa-share-square"></i>
+                            <span class="ml-4 text-lg font-normal">Retrait</span>
+                        </li>
+                    </a>
+
+                </ul>
+                <li class="flex items-center -ml-3 mt-10 font-bold text-slate-400 text-base">
+                    <i class="fas fa-eye"></i>
+                    <span class="pl-4">Audit</span>
+                </li>
+                <ul>
+                    <a href="">
+                        <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2">
+                            <i class="fas fa-exchange-alt"></i>
+                            <span class="ml-4 text-lg font-normal">Opérations</span>
+                        </li>
+                    </a>
+
+                    <a href="">
+                        <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2">
+                            <i class="fas fa-download"></i>
+                            <span class="ml-4 text-lg font-normal">Versement</span>
+                        </li>
+                    </a>
+
+                    <a href="">
+                        <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2">
+                            <i class="fas fa-share-square"></i>
+                            <span class="ml-4 text-lg font-normal">Retrait</span>
+                        </li>
+                    </a>
+
+                    <a href="">
+                        <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2">
+                            <i class="fas fa-users"></i>
+                            <span class="ml-4 text-lg font-normal">Compte</span>
+                        </li>
+                    </a>
+                </ul>
+            </ul>
+        </div>
+    </div>
+</div>

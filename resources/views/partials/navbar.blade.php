@@ -1,9 +1,14 @@
 <div class="sticky">
-    <div class="header w-full flex items-center justify-between pl-10 pr-20 py-4 bg-gray-50 mt-0 z-1">
-        <div class="">
-            <span class="font-bold text-4xl text-blue-900 cursor-pointer">transaction bancaires</span>
+    <div class="header w-full flex items-center justify-between pl-10 pr-20 py-6 bg-gray-50 mt-0 z-1">
+        <div class="-ml-60">
+            <span class="font-bold italic text-2xl text-blue-900 cursor-pointer">
+                <span>transactions</span>
+                <span class="text-4xl"> Bancaires</span>
+                <hr class="-ml-20 w-40">
+            </span>
+
         </div>
-        <div class="">
+        <div class="mr-10">
             <button class="outline-none">
                 <div class="flex items-center cursor-pointer" id="btn_logout">
                     <span class="text-slate-800 mx-4"><i class="fas fa-user-circle fa-2x"></i></span>
@@ -18,8 +23,13 @@
 
     <div class="flex items-center justify-end mr-6 z-99 -mt-4 cursor-pointer">
         <div class="btn-logout hidden rounded py-2 px-4" id="btn_toggle">
-            <span class="mr-2 font-semibold text-lg my-2 mx-4">Logout</span>
-            <i class="fas fa-sign-out-alt mr-4"></i>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                @csrf
+                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <span class="mr-2 font-semibold text-lg my-2 mx-4">Logout</span>
+                    <i class="fas fa-sign-out-alt mr-4"></i>
+                </a>
+            </form>
         </div>
     </div>
 </div>
@@ -28,5 +38,8 @@
 <script>
     $('#btn_logout').click(() => {
         $('#btn_toggle').toggle('hidden')
+    })
+    $('body').click(() => {
+        $('#btn_toggle').addClass('hidden')
     })
 </script>

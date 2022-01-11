@@ -20,7 +20,27 @@
 </head>
 <body>
 
-    @include('partials.navbar')
-    @yield('content')
+
+    <div class="flex ">
+        <div class="sidebar flex-none w-64 h-full pt-4 bg-blue-900">
+            @include('partials.sidebar')
+        </div>
+        <div class="flex-1">
+            @include('partials.navbar')
+            @yield('content')
+        </div>
+    </div>
+
+
+    {{-- @include('partials.navbar')
+
+    <div class="flex ">
+        <div class="sidebar flex-none w-64 h-full pt-4 bg-blue-900">
+            @include('partials.sidebar')
+        </div>
+        <div class="flex-1">
+            @yield('content')
+        </div>
+    </div> --}}
 </body>
 </html>
