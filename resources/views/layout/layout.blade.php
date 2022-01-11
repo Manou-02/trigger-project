@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href={{ asset("css/app.css") }}>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         *{
             margin: 0;
@@ -18,6 +19,8 @@
     </style>
 </head>
 <body>
+
+    @include('partials.navbar')
     @yield('content')
 </body>
 </html>

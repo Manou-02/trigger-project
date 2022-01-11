@@ -2,5 +2,7 @@
 
 
 @section('content')
-   {{ Auth::user()->name }}
+<div class="sticky mt-4">
+    {{ Auth::user()->name }}
+</div>
 @endsection
