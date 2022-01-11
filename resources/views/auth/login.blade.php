@@ -6,8 +6,8 @@
         <div class="">
             <div class="container card flex w-fit mx-auto my-10 bg-gray-50 px-4 rounded-lg">
                 <div class="mx-10">
-                    <div class="flex flex-col justify-items-center text-gray-500 text-center mx-auto my-5">
-                        <i class="fas fa-user-circle fa-3x" class="text-lg"></i>
+                    <div class="flex flex-col justify-items-center items-center text-gray-500 text-center mx-auto my-5">
+                        <img class="w-20 h-20 rounded-full" src="https://cdn-icons-png.flaticon.com/512/195/195488.png" alt="icons" srcset="">
                         <span class="text-lg font-bold">S'authentifier</span>
                     </div>
                     <form action="{{ route('login')}}" method="POST">
