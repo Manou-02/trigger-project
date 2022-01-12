@@ -33,3 +33,9 @@
 .active{
     background-color: rgb(244, 244, 244);
 }
+.add_page{
+    border-radius: 5px;
+    background: #f9f9f9;
+    box-shadow:  20px 20px 60px #c5c5c5,
+                -20px -20px 60px #ffffff;
+}

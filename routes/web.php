@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\RetraitController;
+use App\Http\Controllers\VersementController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,5 +26,8 @@ Route::group(['middleware' => ['auth']], function(){
         return view('home');
     });
 
+    Route::resource('/client', ClientController::class);
+    Route::resource('/versement', VersementController::class);
+    Route::resource('/retrait', RetraitController::class);
 });
 

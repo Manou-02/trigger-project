@@ -3,17 +3,18 @@
         <div class="mt-24 mx-5 font-bold text-slate-400 text-xl">
             <span>Dashboard</span>
         </div>
+
         <div class="">
             <ul class="list-none ml-8 my-5 text-zinc-700 cursor-pointer">
-                <a href="">
-                    <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2 active">
+                <a href="{{ route('home') }}">
+                    <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2 {{ Route::currentRouteName() === "home" ? "active" : "" }}">
                         <i class="fas fa-home"></i>
                         <span class="ml-4 text-lg font-normal">Accueil</span>
                     </li>
                 </a>
 
-                <a href="">
-                    <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2">
+                <a href="{{route('client.index')}}">
+                    <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2 {{Str::substr(Route::currentRouteName(), 0, 6)  === "client" ? "active" : "" }} ">
                         <i class="fas fa-users"></i>
                         <span class="ml-4 text-lg font-normal">Client</span>
                     </li>
@@ -23,15 +24,15 @@
                     <span class="pl-4">Opérations</span>
                 </li>
                 <ul>
-                    <a href="">
-                        <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2">
+                    <a href="{{ route('versement.index') }}">
+                        <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2 {{Str::substr(Route::currentRouteName(), 0, 6)  === "versem" ? "active" : "" }}">
                             <i class="fas fa-download"></i>
                             <span class="ml-4 text-lg font-normal">Versement</span>
                         </li>
                     </a>
 
-                    <a href="">
-                        <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2">
+                    <a href="{{ route('retrait.index') }}">
+                        <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2 {{Str::substr(Route::currentRouteName(), 0, 6)  === "retrai" ? "active" : "" }}">
                             <i class="fas fa-share-square"></i>
                             <span class="ml-4 text-lg font-normal">Retrait</span>
                         </li>
