@@ -20,7 +20,8 @@
                     <table id="client_table">
                         <thead>
                             <tr>
-                                <th> N° Cli </th>
+                                <th>#ID</th>
+                                <th> N° Client </th>
                                 <th> Nom </th>
                                 <th> Solde (Ar) </th>
                                 <th>Actions</th>
@@ -29,6 +30,11 @@
                         <tbody>
                             @foreach ($clients as $client)
                                 <tr>
+                                    <td class="">
+                                        <span class="flex justify-center">
+                                            {{ $client->id }}
+                                        </span>
+                                    </td>
                                     <td class="">
                                         <span class="flex justify-center">
                                             CLI0{{ $client->id }}
@@ -41,12 +47,13 @@
                                     </td>
                                     <td> {{ $client->soldeClient }} </td>
                                     <td class="flex justify-center">
-                                        <a href="">
+                                        <a href="{{ route('client.edit', $client->id)}}">
                                             <span class="mx-4 text-blue-600 flex">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </span>
                                         </a>
-                                        <a href="">
+
+                                        <a href="{{ route('client.destroy', $client->id)}}">
                                             <span class="mx-4 text-red-600">
                                                 <i class="fas fa-trash-alt"></i>
                                             </span>
@@ -67,7 +74,6 @@
                     </div>
                     <div class="mx-4">
                         <form action=" {{route('client.store')}} " method="POST">
-                            @csrf
                             <x-inputComponent
                                 name="nomClient"
                                 type="text"
