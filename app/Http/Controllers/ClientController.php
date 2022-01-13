@@ -39,10 +39,11 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        $client = Client::create([
+        Client::create([
             'nomClient' => $request->nomClient,
             'soldeClient' => $request->soldeClient
         ]);
+        return redirect()->back();
     }
 
     /**

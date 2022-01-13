@@ -10,7 +10,6 @@ class InputComponent extends Component
     public $name;
     public $type;
     public $placeholder;
-
     /**
      * Create a new component instance.
      *
