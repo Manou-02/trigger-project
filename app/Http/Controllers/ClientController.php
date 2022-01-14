@@ -96,7 +96,7 @@ class ClientController extends Controller
      */
     public function destroy(Client $client)
     {
-        dd($client);
+        // dd($client->id);
         Client::destroy($client->id);
         return redirect()->route('client.index');
     }

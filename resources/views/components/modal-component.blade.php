@@ -1,4 +1,9 @@
 <div>
+    <button id="delete_btn" class=" outline-none">
+        <span class="mx-4 text-red-600">
+            <i class="fas fa-trash-alt"></i>
+        </span>
+    </button>
     <div id="delete_modal" class="hidden">
         <div id="" class="bg-black inset-0 absolute bg-opacity-50 flex h-auto flex-col justify-center items-center">
               <div class="bg-slate-50 w-80 rounded-lg py-4 px-4">
