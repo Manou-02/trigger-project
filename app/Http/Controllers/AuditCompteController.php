@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Client;
 use Illuminate\Http\Request;
 
-class ClientController extends Controller
+class AuditCompteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +13,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-
-        $clients = Client::all();
-
-        //dd($clients);
-        return view('clients.index', compact('clients'));
+        return view('audit.compte.index');
     }
 
     /**
@@ -39,65 +34,51 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        Client::create([
-            'nomClient' => $request->nomClient,
-            'soldeClient' => $request->soldeClient
-        ]);
-        return redirect()->back();
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Client  $client
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Client $client)
+    public function show($id)
     {
-        dd($client);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Client  $client
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Client $client)
+    public function edit($id)
     {
         //
-        //dd($client);
-        return view('clients.edit', compact('client'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Client  $client
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Client $client)
+    public function update(Request $request, $id)
     {
-
-        Client::where('id', $client->id)->update([
-            'nomClient' => $request->nomClient,
-            'soldeClient' => $request->soldeClient
-        ]);
-
-        return redirect()->route('client.index');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Client  $client
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Client $client)
+    public function destroy($id)
     {
-        // dd($client->id);
-        Client::destroy($client->id);
-        return redirect()->route('client.index');
+        //
     }
 }

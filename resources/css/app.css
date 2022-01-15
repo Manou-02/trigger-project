@@ -13,6 +13,14 @@
     box-shadow:  5px 5px 15px #d4d4d4,
                 -5px -5px 15px #ffffff;
 }
+
+/* .card:hover{
+    border-radius: 1px;
+    background: #ffffff;
+    box-shadow: inset 5px 5px 15px #d4d4d4,
+                inset -5px -5px 15px #ffffff;
+} */
+
 .header{
     border-radius: 1px;
     background: #ffffff;
@@ -50,4 +58,18 @@
     box-shadow:  5px 5px 15px #d4d4d4,
                 -5px -5px 15px #ffffff;
 
+}
+
+.menu{
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow:  5px 5px 10px #c4c4c4,
+                -5px -5px 10px #ffffff;
+
+}
+.menu:hover{
+    border-radius: 10px;
+    background: linear-gradient(145deg, #e6e6e6, #ffffff);
+    box-shadow:  5px 5px 10px #c4c4c4,
+                -5px -5px 10px #ffffff;
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuditCompteController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\RetraitController;
 use App\Http\Controllers\VersementController;
@@ -26,8 +27,19 @@ Route::group(['middleware' => ['auth']], function(){
         return view('home');
     });
 
+    /**Autres routes */
+    Route::get('/versement/create/{client}', [VersementController::class, 'details'])->name('verserment.create.details');
+    Route::get('/versement/liste/', [VersementController::class, 'listeVersement'])->name('versement.liste');
+
+    Route::get("/aaa", function(){
+        return view('versement.liste');
+    });
+
+
     Route::resource('/client', ClientController::class);
     Route::resource('/versement', VersementController::class);
     Route::resource('/retrait', RetraitController::class);
+    /** Audit routes */
+    Route::resource('/audit/compte', AuditCompteController::class);
 });
 

@@ -48,7 +48,7 @@
                                     <td> {{ $client->soldeClient }} </td>
                                     <td class="flex justify-center">
                                         <a href="{{ route('client.edit', $client->id)}}" class="text-blue-600 border-2 border-blue-600 px-4 py-2 space-x-2 rounded hover:bg-blue-600 hover:text-slate-50 text-sm">
-                                            <span class="text-green-600 mr-2">
+                                            <span class="mr-2">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </span>
                                             <span>Modifier</span>
@@ -74,7 +74,7 @@
             </div>
 
             <div  id="add_page" class=" ml-10 hidden">
-                <div class="table">
+                <div class="table py-10">
 
                     <div class=" w-96 flex flex-col items-center h-auto py-5">
                         <div class="flex items-center mt-2 h-10 text-blue-900">

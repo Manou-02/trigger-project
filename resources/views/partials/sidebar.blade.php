@@ -65,8 +65,8 @@
                         </li>
                     </a>
 
-                    <a href="">
-                        <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2">
+                    <a href=" {{route('compte.index')}} ">
+                        <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2 {{Str::substr(Route::currentRouteName(), 0, 6)  === "compte" ? "active" : "" }}">
                             <i class="fas fa-users"></i>
                             <span class="ml-4 text-lg font-normal">Compte</span>
                         </li>

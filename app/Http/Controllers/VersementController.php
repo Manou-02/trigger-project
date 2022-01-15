@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
 use App\Models\Versement;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,9 @@ class VersementController extends Controller
      */
     public function create()
     {
-        //
+        $clients = Client::all();
+
+        return view('versement.create', compact('clients'));
     }
 
     /**
@@ -35,7 +38,13 @@ class VersementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Versement::create([
+            "numCheque" => $request->numCheque,
+            "client_id" => $request->client_id,
+            "montantVerse" => $request->montant_verse
+        ]);
+
+        return redirect()->route('versement.liste');
     }
 
     /**
@@ -81,5 +90,24 @@ class VersementController extends Controller
     public function destroy(Versement $versement)
     {
         //
+        dd($versement);
     }
+
+
+
+    /**Liste de tous les versements */
+    public function listeVersement()
+    {
+
+        $versements = Versement::all();
+        return view('versement.liste', compact('versements'));
+    }
+
+
+    /** Show the client in versement */
+    public function details(Client $client){
+
+        return view('versement.details', compact('client'));
+    }
+
 }
