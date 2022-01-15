@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
 use App\Models\Retrait;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,9 @@ class RetraitController extends Controller
      */
     public function create()
     {
-        //
+        $clients = Client::all();
+
+        return view('retrait.create', compact('clients'));
     }
 
     /**
@@ -36,6 +39,12 @@ class RetraitController extends Controller
     public function store(Request $request)
     {
         //
+        Retrait::create([
+            'numCheque' => $request->numCheque,
+            'client_id' => $request->client_id,
+            'montantRet' => $request->montantRet
+        ]);
+        return redirect()->route('retrait.liste');
     }
 
     /**
@@ -47,6 +56,7 @@ class RetraitController extends Controller
     public function show(Retrait $retrait)
     {
         //
+
     }
 
     /**
@@ -81,5 +91,15 @@ class RetraitController extends Controller
     public function destroy(Retrait $retrait)
     {
         //
+    }
+
+    public function details(Client $client){
+        return view('retrait.details', compact('client'));
+    }
+
+    public function liste(){
+        $retraits = Retrait::all();
+
+        return view('retrait.liste', compact('retraits'));
     }
 }

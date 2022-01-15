@@ -30,10 +30,8 @@ Route::group(['middleware' => ['auth']], function(){
     /**Autres routes */
     Route::get('/versement/create/{client}', [VersementController::class, 'details'])->name('verserment.create.details');
     Route::get('/versement/liste/', [VersementController::class, 'listeVersement'])->name('versement.liste');
-
-    Route::get("/aaa", function(){
-        return view('versement.liste');
-    });
+    Route::get('/retrait/create/{client}', [RetraitController::class, 'details'])->name('retrait.create.details');
+    Route::get('/retrait/liste', [RetraitController::class, 'liste'])->name('retrait.liste');
 
 
     Route::resource('/client', ClientController::class);

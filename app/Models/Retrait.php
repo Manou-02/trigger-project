@@ -10,4 +10,8 @@ class Retrait extends Model
     use HasFactory;
 
     protected $fillable= ['numCheque', 'client_id', 'montantRet'];
+
+    public function client(){
+        return $this->belongsTo(Client::class);
+    }
 }

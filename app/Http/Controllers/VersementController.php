@@ -90,7 +90,10 @@ class VersementController extends Controller
     public function destroy(Versement $versement)
     {
         //
-        dd($versement);
+        Versement::destroy($versement->id);
+
+        return redirect()->back();
+
     }
 
 
