@@ -67,7 +67,7 @@ class RetraitController extends Controller
      */
     public function edit(Retrait $retrait)
     {
-        //
+        return view('retrait.edit', compact('retrait'));
     }
 
     /**
@@ -79,7 +79,13 @@ class RetraitController extends Controller
      */
     public function update(Request $request, Retrait $retrait)
     {
-        //
+
+        Retrait::where('id', $retrait->id)->update([
+            'numCheque' => $request->numCheque,
+            'montantRet' => $request-> montantRet
+        ]);
+
+        return redirect()->route('retrait.liste');
     }
 
     /**
@@ -90,7 +96,9 @@ class RetraitController extends Controller
      */
     public function destroy(Retrait $retrait)
     {
-        //
+        // dd($retrait->id);
+        Retrait::destroy($retrait->id);
+        return view('retrait.liste');
     }
 
     public function details(Client $client){

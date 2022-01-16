@@ -66,7 +66,7 @@ class VersementController extends Controller
      */
     public function edit(Versement $versement)
     {
-        //
+        return view('versement.edit', compact('versement'));
     }
 
     /**
@@ -78,7 +78,11 @@ class VersementController extends Controller
      */
     public function update(Request $request, Versement $versement)
     {
-        //
+        Versement::where('id', $versement->id)->update([
+            'numCheque' => $request->numCheque,
+            'montantVerse' => $request->montantVerse
+        ]);
+        return redirect()->route('versement.liste');
     }
 
     /**

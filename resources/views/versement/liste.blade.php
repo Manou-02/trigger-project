@@ -20,10 +20,10 @@
                             <td> {{ $versement->client->nomClient }} </td>
                             <td> {{ $versement->montantVerse }} </td>
                             <td class="space-x-5 flex items-center justify-center">
-                                <button class="outline-none border-2 border-blue-600 text-blue-600 rounded px-4 py-2">
+                                <a href="{{ route('versement.edit', $versement->id) }}" class="outline-none border-2 border-blue-600 text-blue-600 rounded px-4 py-2">
                                     <i class="fas fa-pencil-alt"></i>
                                     <span class="ml-2">Modifier</span>
-                                </button>
+                                </a>
                                 <form action="{{route('versement.destroy', $versement->id)}}" method="POST" onsubmit="return confirm('Voulez-vous vraiment supprimer ce versement?')">
                                     @method('delete')
                                     @csrf
