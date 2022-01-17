@@ -51,15 +51,15 @@
                         </li>
                     </a>
 
-                    <a href="">
-                        <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2">
+                    <a href=" {{route('audit.versement.index')}} ">
+                        <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2 {{Str::substr(Route::currentRouteName(), 0, 7)  === "audit.v" ? "active" : "" }}">
                             <i class="fas fa-download"></i>
                             <span class="ml-4 text-lg font-normal">Versement</span>
                         </li>
                     </a>
 
-                    <a href="">
-                        <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2">
+                    <a href=" {{route('audit.retrait.index')}} ">
+                        <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2 {{Str::substr(Route::currentRouteName(), 0, 7)  === "audit.r" ? "active" : "" }}">
                             <i class="fas fa-share-square"></i>
                             <span class="ml-4 text-lg font-normal">Retrait</span>
                         </li>

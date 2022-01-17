@@ -2,10 +2,11 @@
 
 use App\Http\Controllers\AuditCompteController;
 use App\Http\Controllers\AuditOperationsController;
+use App\Http\Controllers\AuditRetraitController;
+use App\Http\Controllers\AuditVersementController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\RetraitController;
 use App\Http\Controllers\VersementController;
-use App\Models\AuditOperations;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,13 @@ Route::group(['middleware' => ['auth']], function(){
         return view('home');
     });
 
+    /** Roue Audit versement et retrait */
+    Route::get('/audit/versement', [AuditVersementController::class, 'index'])->name('audit.versement.index');
+    Route::delete('/audit/versement/{id}', [AuditVersementController::class, 'destroy'])->name('audit.versement.destroy');
+    Route::get('/audit/retrait', [AuditRetraitController::class, 'index'])->name('audit.retrait.index');
+    Route::delete('/audit/retrait/{id}', [AuditVersementController::class, 'destroy'])->name('audit.retrait.destroy');
+
+
     /**Autres routes */
     Route::get('/versement/create/{client}', [VersementController::class, 'details'])->name('verserment.create.details');
     Route::get('/versement/liste/', [VersementController::class, 'listeVersement'])->name('versement.liste');
@@ -45,5 +53,10 @@ Route::group(['middleware' => ['auth']], function(){
     /** Audit routes */
     Route::resource('/audit/compte', AuditCompteController::class);
     Route::resource('/audit/operation', AuditOperationsController::class);
+
+    // Route::group(['prefix' => 'audit'], function(){
+    //     Route::resource('/audit/versement', AuditVersementController::class);
+    //     Route::resource('/audit/retrait', AuditRetraitController::class);
+    // });
 });
 
