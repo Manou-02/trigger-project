@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AuditRetrait;
 use Illuminate\Http\Request;
 
 class AuditRetraitController extends Controller
@@ -13,7 +14,9 @@ class AuditRetraitController extends Controller
      */
     public function index()
     {
-        return view('audit.retrait.index');
+        $auditRetraits = AuditRetrait::all();
+
+        return view('audit.retrait.index', compact('auditRetraits'));
     }
 
     /**
@@ -80,5 +83,6 @@ class AuditRetraitController extends Controller
     public function destroy($id)
     {
         //
+        dd($id);
     }
 }
