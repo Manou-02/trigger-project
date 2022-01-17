@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ClientController extends Controller
 {
@@ -16,7 +17,6 @@ class ClientController extends Controller
     {
 
         $clients = Client::all();
-
         //dd($clients);
         return view('clients.index', compact('clients'));
     }
@@ -41,7 +41,8 @@ class ClientController extends Controller
     {
         Client::create([
             'nomClient' => $request->nomClient,
-            'soldeClient' => $request->soldeClient
+            'soldeClient' => $request->soldeClient,
+            'user_id' => Auth::user()->id
         ]);
         return redirect()->back();
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use App\Models\Retrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RetraitController extends Controller
 {
@@ -42,7 +43,8 @@ class RetraitController extends Controller
         Retrait::create([
             'numCheque' => $request->numCheque,
             'client_id' => $request->client_id,
-            'montantRet' => $request->montantRet
+            'montantRet' => $request->montantRet,
+            'user_id' => Auth::user()->id,
         ]);
         return redirect()->route('retrait.liste');
     }
@@ -98,7 +100,7 @@ class RetraitController extends Controller
     {
         // dd($retrait->id);
         Retrait::destroy($retrait->id);
-        return view('retrait.liste');
+        return redirect()->route('retrait.liste');
     }
 
     public function details(Client $client){

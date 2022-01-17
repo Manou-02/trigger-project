@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use App\Models\Versement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VersementController extends Controller
 {
@@ -41,7 +42,8 @@ class VersementController extends Controller
         Versement::create([
             "numCheque" => $request->numCheque,
             "client_id" => $request->client_id,
-            "montantVerse" => $request->montant_verse
+            "montantVerse" => $request->montant_verse,
+            "user_id" => Auth::user()->id,
         ]);
 
         return redirect()->route('versement.liste');
