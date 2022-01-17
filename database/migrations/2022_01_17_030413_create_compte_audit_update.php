@@ -20,7 +20,7 @@ class CreateCompteAuditUpdate extends Migration
             FOR EACH ROW
             BEGIN
                 INSERT INTO audit_comptes(typeAction, date, numCompte, nomClient, soldeAncien, soldeNouveau, user_id)
-                VALUES ('Modification', NOW(), OLD.id, NEW.nomClient, OLD.soldeClient, NEW.soldeClient, OLD.user_id);
+                VALUES ('Modification', NOW(), OLD.id, NEW.nomClient, OLD.soldeClient, NEW.soldeClient, NEW.user_id);
             END;
         ");
     }

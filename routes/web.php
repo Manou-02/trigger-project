@@ -54,9 +54,5 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('/audit/compte', AuditCompteController::class);
     Route::resource('/audit/operation', AuditOperationsController::class);
 
-    // Route::group(['prefix' => 'audit'], function(){
-    //     Route::resource('/audit/versement', AuditVersementController::class);
-    //     Route::resource('/audit/retrait', AuditRetraitController::class);
-    // });
 });
 

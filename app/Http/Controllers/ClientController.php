@@ -66,7 +66,6 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        //
         //dd($client);
         return view('clients.edit', compact('client'));
     }
@@ -80,10 +79,10 @@ class ClientController extends Controller
      */
     public function update(Request $request, Client $client)
     {
-
         Client::where('id', $client->id)->update([
             'nomClient' => $request->nomClient,
-            'soldeClient' => $request->soldeClient
+            'soldeClient' => $request->soldeClient,
+            'user_id' => Auth::user()->id
         ]);
 
         return redirect()->route('client.index');

@@ -21,7 +21,7 @@ class AuditRetraitUpdate extends Migration
             FOR EACH ROW
             BEGIN
                 INSERT INTO audit_retraits(typeAction, date , numRet, client_id , montantAnc, montantNouv, user_id)
-                VALUES ('Modification', NOW(), OLD.id, OLD.client_id , OLD.montantRet, NEW.montantRet, OLD.user_id);
+                VALUES ('Modification', NOW(), OLD.id, OLD.client_id , OLD.montantRet, NEW.montantRet, NEW.user_id);
             END;
         ");
     }
@@ -35,7 +35,7 @@ class AuditRetraitUpdate extends Migration
     {
         //
         DB::unprepared("
-
+            DROP TRIGGER IF EXISTS retrait_audit_update;
         ");
     }
 }
