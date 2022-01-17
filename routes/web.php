@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\AuditCompteController;
+use App\Http\Controllers\AuditOperationsController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\RetraitController;
 use App\Http\Controllers\VersementController;
+use App\Models\AuditOperations;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,5 +44,6 @@ Route::group(['middleware' => ['auth']], function(){
 
     /** Audit routes */
     Route::resource('/audit/compte', AuditCompteController::class);
+    Route::resource('/audit/operation', AuditOperationsController::class);
 });
 

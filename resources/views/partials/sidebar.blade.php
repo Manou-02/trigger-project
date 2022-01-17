@@ -44,8 +44,8 @@
                     <span class="pl-4">Audit</span>
                 </li>
                 <ul>
-                    <a href="">
-                        <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2">
+                    <a href=" {{ route('operation.index') }} ">
+                        <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2 {{Str::substr(Route::currentRouteName(), 0, 6)  === "operat" ? "active" : "" }}">
                             <i class="fas fa-exchange-alt"></i>
                             <span class="ml-4 text-lg font-normal">Opérations</span>
                         </li>
