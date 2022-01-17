@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAuditVersementUpdate extends Migration
+class VersementAfterUpdate extends Migration
 {
     /**
      * Run the migrations.
@@ -15,13 +15,12 @@ class CreateAuditVersementUpdate extends Migration
     public function up()
     {
         DB::unprepared("
-            CREATE TRIGGER versement_audit_update
+            CREATE TRIGGER after_versement_update_solde_client
             AFTER UPDATE ON versements
             FOR EACH ROW
-            BEGIN
-                INSERT INTO audit_versements(typeAction, date , numVerse, client_id , montantAncien, montantNouv, user_id)
-                VALUES ('Modification', NOW(), OLD.id, OLD.client_id , OLD.montantVerse, NEW.montantVerse, NEW.user_id);
-            END;
+            UPDATE clients
+            SET soldeClient = soldeClient - OLD.montantVerse + NEW.montantVerse
+            WHERE clients.id = OLD.client_id;
         ");
     }
 
@@ -32,8 +31,8 @@ class CreateAuditVersementUpdate extends Migration
      */
     public function down()
     {
-        DB::unprepared('
-            DROP TRIGGER IF EXISTS versement_audit_update;
-        ');
+        DB::unprepared("
+            DROP TRIGGER IF EXISTS after_versement_update_solde_client;
+        ");
     }
 }

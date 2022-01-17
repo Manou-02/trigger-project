@@ -16,7 +16,7 @@ class CreateAuditOperationsTable extends Migration
         Schema::create('audit_operations', function (Blueprint $table) {
             $table->id();
             $table->string('typeAction');
-            $table->date('date');
+            $table->dateTime('date');
             $table->string('numCheque');
             $table->foreignId('client_id')->constrained();
             $table->double('montant');

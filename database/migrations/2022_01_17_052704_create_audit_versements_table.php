@@ -16,7 +16,7 @@ class CreateAuditVersementsTable extends Migration
         Schema::create('audit_versements', function (Blueprint $table) {
             $table->id();
             $table->string('typeAction');
-            $table->date('date');
+            $table->dateTime('date');
             $table->string('numVerse');
             $table->foreignId('client_id')->constrained();
             $table->double('montantAncien');

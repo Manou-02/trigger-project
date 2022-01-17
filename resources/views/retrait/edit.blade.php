@@ -21,6 +21,13 @@
                         </tbody>
                     </table>
                 </div>
+                @if ($errors->any())
+                    @foreach ($errors->all() as $error)
+                        <p class="text-red-600">
+                            {{ $error }}
+                        </p>
+                    @endforeach
+                @endif
                 <form action=" {{route('retrait.update', $retrait->id)}} " method="POST">
                     @method('PATCH')
                     @csrf

@@ -10,6 +10,13 @@
                         <img class="w-20 h-20 rounded-full" src="https://cdn-icons-png.flaticon.com/512/195/195488.png" alt="icons" srcset="">
                         <span class="text-lg font-bold">S'authentifier</span>
                     </div>
+                    @if ($errors->any())
+                        @foreach ($errors->all() as $error)
+                            <p class="text-red-600">
+                                {{ $error }}
+                            </p>
+                        @endforeach
+                    @endif
                     <form action="{{ route('login')}}" method="POST">
                         @csrf
                         <x-inputComponent

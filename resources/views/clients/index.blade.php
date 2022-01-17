@@ -82,6 +82,17 @@
                             <span class="text-lg ml-2">Nouveau client</span>
                         </div>
                         <div class="mx-4">
+
+                            @if ($errors->any())
+                                @foreach ($errors->all() as $error)
+                                    <p class="text-red-600">
+                                        {{ $error }}
+                                    </p>
+                                    <script>
+                                        $('#add_page').removeClass('hidden')
+                                    </script>
+                                @endforeach
+                            @endif
                             <form action=" {{route('client.store')}} " method="POST">
                                 @csrf
                                 <x-inputComponent

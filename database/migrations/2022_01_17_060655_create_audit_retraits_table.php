@@ -16,7 +16,7 @@ class CreateAuditRetraitsTable extends Migration
         Schema::create('audit_retraits', function (Blueprint $table) {
             $table->id();
             $table->string('typeAction');
-            $table->date('date');
+            $table->dateTime('date');
             $table->string('numRet');
             $table->foreignId('client_id')->constrained();
             $table->double('montantAnc');

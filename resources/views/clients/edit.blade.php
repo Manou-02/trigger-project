@@ -5,6 +5,13 @@
         <div class="table mt-10">
             <h3 class="text-xl text-blue-900 font-semibold my-10 mx-10">Modification du client N° CLI0{{ $client->id }}</h3>
             <div class="mx-10">
+                @if ($errors->any())
+                    @foreach ($errors->all() as $error)
+                        <p class="text-red-600">
+                            {{ $error }}
+                        </p>
+                    @endforeach
+                @endif
                 <form action="{{route('client.update', $client->id) }}" method="POST">
                     @csrf
                     @method('PATCH')

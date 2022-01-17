@@ -39,6 +39,12 @@ class VersementController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'numCheque' => 'required',
+            'client_id' => 'required',
+            'montant_verse' => 'required|numeric'
+        ]);
+
         Versement::create([
             "numCheque" => $request->numCheque,
             "client_id" => $request->client_id,
@@ -80,9 +86,15 @@ class VersementController extends Controller
      */
     public function update(Request $request, Versement $versement)
     {
+        $request->validate([
+            'numCheque' => 'required',
+            'montantVerse' => 'required|numeric',
+        ]);
+
         Versement::where('id', $versement->id)->update([
             'numCheque' => $request->numCheque,
-            'montantVerse' => $request->montantVerse
+            'montantVerse' => $request->montantVerse,
+            'user_id' => Auth::user()->id
         ]);
         return redirect()->route('versement.liste');
     }

@@ -39,6 +39,12 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'nomClient' => 'required',
+            'soldeClient' => 'required|numeric'
+        ]);
+
         Client::create([
             'nomClient' => $request->nomClient,
             'soldeClient' => $request->soldeClient,
@@ -79,6 +85,11 @@ class ClientController extends Controller
      */
     public function update(Request $request, Client $client)
     {
+        $request->validate([
+            'nomClient' => 'required',
+            'soldeClient' => 'required'
+        ]);
+
         Client::where('id', $client->id)->update([
             'nomClient' => $request->nomClient,
             'soldeClient' => $request->soldeClient,

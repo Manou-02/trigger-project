@@ -39,7 +39,12 @@ class RetraitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'numCheque' => 'required',
+            'client_id' => 'required',
+            'montantRet' => 'required|numeric'
+        ]);
+
         Retrait::create([
             'numCheque' => $request->numCheque,
             'client_id' => $request->client_id,
@@ -81,10 +86,15 @@ class RetraitController extends Controller
      */
     public function update(Request $request, Retrait $retrait)
     {
+        $request->validate([
+            'numCheque' => 'required',
+            'montantRet' => 'required|numeric'
+        ]);
 
         Retrait::where('id', $retrait->id)->update([
             'numCheque' => $request->numCheque,
-            'montantRet' => $request-> montantRet
+            'montantRet' => $request-> montantRet,
+            'user_id' => Auth::user()->id
         ]);
 
         return redirect()->route('retrait.liste');
