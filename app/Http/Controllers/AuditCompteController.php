@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AuditCompte;
 use Illuminate\Http\Request;
 
 class AuditCompteController extends Controller
@@ -13,7 +14,8 @@ class AuditCompteController extends Controller
      */
     public function index()
     {
-        return view('audit.compte.index');
+        $auditComptes = AuditCompte::all();
+        return view('audit.compte.index', compact('auditComptes'));
     }
 
     /**
@@ -79,6 +81,8 @@ class AuditCompteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // dd($id);
+        AuditCompte::destroy($id);
+        return redirect()->route('compte.index');
     }
 }
