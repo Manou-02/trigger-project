@@ -34,7 +34,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/audit/versement', [AuditVersementController::class, 'index'])->name('audit.versement.index');
     Route::delete('/audit/versement/{id}', [AuditVersementController::class, 'destroy'])->name('audit.versement.destroy');
     Route::get('/audit/retrait', [AuditRetraitController::class, 'index'])->name('audit.retrait.index');
-    Route::delete('/audit/retrait/{id}', [AuditVersementController::class, 'destroy'])->name('audit.retrait.destroy');
+    Route::delete('/audit/retrait/{id}', [AuditRetraitController::class, 'destroy'])->name('audit.retrait.destroy');
 
 
     /**Autres routes */

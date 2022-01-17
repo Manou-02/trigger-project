@@ -82,7 +82,10 @@ class AuditRetraitController extends Controller
      */
     public function destroy($id)
     {
-        //
-        dd($id);
+
+        // dd($id);
+
+        AuditRetrait::destroy($id);
+        return redirect()->route('audit.retrait.index');
     }
 }
