@@ -25,10 +25,10 @@
         <div class="btn-logout hidden rounded py-2 px-4" id="btn_toggle">
             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                 @csrf
-                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <button href="{{ route('logout') }}" type="submit" class="outline-none">
                     <span class="mr-2 font-semibold text-lg my-2 mx-4">Logout</span>
                     <i class="fas fa-sign-out-alt mr-4"></i>
-                </a>
+                </button>
             </form>
         </div>
     </div>

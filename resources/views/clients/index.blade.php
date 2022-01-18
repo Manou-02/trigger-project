@@ -37,7 +37,7 @@
                                     </td>
                                     <td class="">
                                         <span class="flex justify-center">
-                                            CLI0{{ $client->id }}
+                                            COMP0{{ $client->id }}
                                         </span>
                                     </td>
                                     <td class="">
