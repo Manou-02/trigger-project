@@ -46,9 +46,15 @@
                                         </span>
                                     </td>
                                     <td> {{ $client->soldeClient }} </td>
-                                    <td class="flex justify-center">
-                                        <a href="{{ route('client.edit', $client->id)}}" class="text-blue-600 border-2 border-blue-600 px-4 py-2 space-x-2 rounded hover:bg-blue-600 hover:text-slate-50 text-sm">
+                                    <td class="flex justify-center space-x-2">
+                                        <a href=" {{ route('client.details', $client->id) }} " class="text-green-500 border-2 border-green-500 px-4 py-2 rounded hover:bg-green-500 hover:text-slate-50 text-sm">
                                             <span class="mr-2">
+                                                <i class="fas fa-info-circle"></i>
+                                            </span>
+                                            <span>Details</span>
+                                        </a>
+                                        <a href="{{ route('client.edit', $client->id)}}" class="text-blue-600 border-2 border-blue-600 px-4 py-2 space-x-2 rounded hover:bg-blue-600 hover:text-slate-50 text-sm">
+                                            <span class="">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </span>
                                             <span>Modifier</span>
@@ -57,7 +63,7 @@
                                         <form action="{{route('client.destroy', $client->id)}}" method="post" onsubmit="return confirm('Voulez-vous vraiment supprimer ce client?')">
                                             @method('delete')
                                             @csrf
-                                            <button type="submit" class="outline-none mx-4 text-red-600 border-2 border-red-600 px-4 py-2 rounded hover:bg-red-600 hover:text-slate-50 text-sm">
+                                            <button type="submit" class="outline-none text-red-600 border-2 border-red-600 px-4 py-2 rounded hover:bg-red-600 hover:text-slate-50 text-sm">
                                                 <span class="mr-2">
                                                     <i class="fas fa-trash-alt"></i>
                                                 </span>

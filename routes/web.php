@@ -44,6 +44,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/retrait/create/{client}', [RetraitController::class, 'details'])->name('retrait.create.details');
     Route::get('/retrait/liste', [RetraitController::class, 'liste'])->name('retrait.liste');
 
+    Route::get('/client/details/{client}', [ClientController::class, 'details'])->name('client.details');
 
 
     Route::resource('/client', ClientController::class);

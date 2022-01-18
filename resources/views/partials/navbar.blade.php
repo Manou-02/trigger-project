@@ -1,4 +1,4 @@
-<div class="sticky">
+<div class="sticky mt-0">
     <div class="header w-full flex items-center justify-between pl-10 pr-20 py-6 bg-gray-50 mt-0 z-1">
         <div class="-ml-60">
             <span class="font-bold italic text-2xl text-blue-900 cursor-pointer">

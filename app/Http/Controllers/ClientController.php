@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Retrait;
+use App\Models\Versement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -110,5 +112,17 @@ class ClientController extends Controller
         // dd($client->id);
         Client::destroy($client->id);
         return redirect()->route('client.index');
+    }
+
+    public function details($id){
+        $client = Client::where('id', $id)->first();
+        $retraits = Retrait::where('client_id', $id)->get();
+        $versements = Versement::where('client_id', $id)->get();
+
+        return view('clients.details',[
+            'client' => $client,
+            'retraits' => $retraits,
+            'versements' => $versements
+        ]);
     }
 }
