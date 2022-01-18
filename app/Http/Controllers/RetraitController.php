@@ -16,6 +16,7 @@ class RetraitController extends Controller
      */
     public function index()
     {
+
         return view('retrait.index');
     }
 
@@ -45,13 +46,23 @@ class RetraitController extends Controller
             'montantRet' => 'required|numeric'
         ]);
 
-        Retrait::create([
-            'numCheque' => $request->numCheque,
-            'client_id' => $request->client_id,
-            'montantRet' => $request->montantRet,
-            'user_id' => Auth::user()->id,
-        ]);
-        return redirect()->route('retrait.liste');
+        $client = Client::where('id', $request->client_id)->first();
+
+        if($client->soldeClient < doubleval($request->montantRet)){
+            return view('retrait.soldeinsuffisant', [
+                "actuel" => $client->soldeClient,
+                "demande" => $request->montantRet,
+                "client" => $client
+            ]);
+        }else{
+            Retrait::create([
+                'numCheque' => $request->numCheque,
+                'client_id' => $request->client_id,
+                'montantRet' => $request->montantRet,
+                'user_id' => Auth::user()->id,
+            ]);
+            return redirect()->route('retrait.liste');
+        }
     }
 
     /**

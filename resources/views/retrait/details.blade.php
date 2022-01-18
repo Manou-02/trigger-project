@@ -25,13 +25,6 @@
                     </tbody>
                 </table>
             </div>
-            @if ($errors->any())
-                @foreach ($errors->all() as $error)
-                    <p class="text-red-600">
-                        {{ $error }}
-                    </p>
-                @endforeach
-            @endif
             <form action=" {{ route('retrait.store') }} " method="POST">
                 @csrf
                 <input type="number" name="client_id" value="{{ $client->id }}" class="hidden" >
@@ -41,6 +34,9 @@
                     type="number"
                     placeholder="N° Cheque"
                 >
+                    @error('numCheque')
+                        <p class="text-red-600"> {{ $message }} </p>
+                    @enderror
                     <i class="fas fa-money-check-alt"></i><span class="ml-2">CH0</span>
                 </x-inputComponent>
 
@@ -49,6 +45,10 @@
                     type="number"
                     placeholder="Montant à retirer (Ar)"
                 >
+
+                    @error('montantRet')
+                        <p class="text-red-600"> {{ $message }} </p>
+                    @enderror
                     <i class="fas fa-dollar-sign"></i>
                 </x-inputComponent>
 

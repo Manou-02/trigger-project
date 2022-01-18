@@ -21,13 +21,6 @@
                         </tbody>
                     </table>
                 </div>
-                @if ($errors->any())
-                    @foreach ($errors->all() as $error)
-                        <p class="text-red-600">
-                            {{ $error }}
-                        </p>
-                    @endforeach
-                @endif
                 <form action=" {{route('retrait.update', $retrait->id)}} " method="POST">
                     @method('PATCH')
                     @csrf
@@ -38,6 +31,9 @@
                         placeholder=""
                         :value="$retrait->numCheque"
                     >
+                        @error('numCheque')
+                            <p class="text-red-600"> {{ $message }} </p>
+                        @enderror
                         <div class="">
                             <label for="">N° de cheque</label>
                         </div>
@@ -50,6 +46,10 @@
                         placeholder=""
                         :value="$retrait->montantRet"
                     >
+
+                        @error('montantRet')
+                            <p class="text-red-600"> {{ $message }} </p>
+                        @enderror
                         <div class="">
                             <label for="">Montant (Ar)</label>
                         </div>

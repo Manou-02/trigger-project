@@ -1,6 +1,7 @@
 @extends('layout.layout')
 
 @section('content')
+
 <div class="mt-10 sticky w-full flex justify-center items-center">
     <div class="table my-10 pb-10">
         <div class="flex justify-center">
@@ -25,13 +26,6 @@
                     </tbody>
                 </table>
             </div>
-            @if ($errors->any())
-                @foreach ($errors->all() as $error)
-                    <p class="text-red-600">
-                        {{ $error }}
-                    </p>
-                @endforeach
-            @endif
             <form action="{{ route('versement.store') }} " method="POST">
                 @csrf
                 <input type="number" name="client_id" value="{{ $client->id }}" class="hidden" >
@@ -41,6 +35,10 @@
                     type="number"
                     placeholder="N° Cheque"
                 >
+
+                    @error('numCheque')
+                        <p class="text-red-600"> {{ $message }} </p>
+                    @enderror
                     <i class="fas fa-money-check-alt"></i><span class="ml-2">CH0</span>
                 </x-inputComponent>
 
@@ -49,6 +47,10 @@
                     type="number"
                     placeholder="Montant à verser (Ar)"
                 >
+
+                    @error('montant_verse')
+                        <p class="text-red-600"> {{ $message }} </p>
+                    @enderror
                     <i class="fas fa-dollar-sign"></i>
                 </x-inputComponent>
 

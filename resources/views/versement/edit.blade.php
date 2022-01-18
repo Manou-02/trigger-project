@@ -21,13 +21,6 @@
                         </tbody>
                     </table>
                 </div>
-                @if ($errors->any())
-                    @foreach ($errors->all() as $error)
-                        <p class="text-red-600">
-                            {{ $error }}
-                        </p>
-                    @endforeach
-                @endif
                 <form action=" {{route('versement.update', $versement->id)}} " method="POST">
                     @method('PATCH')
                     @csrf
@@ -38,6 +31,10 @@
                         placeholder=""
                         :value="$versement->numCheque"
                     >
+
+                        @error('numCheque')
+                            <p class="text-red-600"> {{ $message }} </p>
+                        @enderror
                         <div class="">
                             <label for="">N° de cheque</label>
                         </div>
@@ -50,6 +47,10 @@
                         placeholder=""
                         :value="$versement->montantVerse"
                     >
+
+                        @error('montantVerse')
+                            <p class="text-red-600"> {{ $message }} </p>
+                        @enderror
                         <div class="">
                             <label for="">Montant</label>
                         </div>

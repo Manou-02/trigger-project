@@ -25,7 +25,7 @@
                 </li>
                 <ul>
                     <a href="{{ route('versement.index') }}">
-                        <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2 {{Str::substr(Route::currentRouteName(), 0, 6)  === "versem" ? "active" : "" }}">
+                        <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2 {{Str::substr(Route::currentRouteName(), 0, 5)  === "verse" ? "active" : "" }}">
                             <i class="fas fa-download"></i>
                             <span class="ml-4 text-lg font-normal">Versement</span>
                         </li>

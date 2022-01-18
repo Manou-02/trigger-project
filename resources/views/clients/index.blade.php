@@ -82,16 +82,10 @@
                             <span class="text-lg ml-2">Nouveau client</span>
                         </div>
                         <div class="mx-4">
-
                             @if ($errors->any())
-                                @foreach ($errors->all() as $error)
-                                    <p class="text-red-600">
-                                        {{ $error }}
-                                    </p>
-                                    <script>
-                                        $('#add_page').removeClass('hidden')
-                                    </script>
-                                @endforeach
+                                <script>
+                                    $('#add_page').removeClass('hidden')
+                                </script>
                             @endif
                             <form action=" {{route('client.store')}} " method="POST">
                                 @csrf
@@ -100,8 +94,12 @@
                                     type="text"
                                     placeholder="Nom du client"
                                 >
+                                    @error('nomClient')
+                                        <p class="text-red-600"> {{ $message }} </p>
+                                    @enderror
                                     <i class="fas fa-user-alt"></i>
                                 </x-inputComponent>
+
 
                                 <x-inputComponent
                                     name="soldeClient"
@@ -109,6 +107,10 @@
                                     placeholder="Solde initiale"
                                     color="bg-slate-50"
                                 >
+                                    @error('soldeClient')
+                                        <p class="text-red-600"> {{ $message }} </p>
+                                    @enderror
+
                                     <i class="fas fa-dollar-sign"></i>
                                 </x-inputComponent>
                                 <button class="bg-indigo-900 text-slate-50 px-4 py-2 rounded w-full outline-none my-5">
