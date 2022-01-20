@@ -44,7 +44,7 @@
                             </td>
                             <td class="">
                                 <span class="flex justify-center">
-                                    COMP{{ $auditOperation->client->id }}
+                                    COMP0{{ $auditOperation->client->id }}
                                 </span>
                             </td>
                             <td class="">

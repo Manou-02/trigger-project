@@ -36,7 +36,7 @@
                                 </td>
                                 <td class="">
                                     <span class="flex justify-center">
-                                        COMP{{ $auditCompte->numCompte }}
+                                        COMP0{{ $auditCompte->numCompte }}
                                     </span>
                                 </td>
                                 <td class="">
