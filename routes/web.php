@@ -7,6 +7,9 @@ use App\Http\Controllers\AuditVersementController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\RetraitController;
 use App\Http\Controllers\VersementController;
+use App\Models\Client;
+use App\Models\Retrait;
+use App\Models\Versement;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +26,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['auth']], function(){
     Route::get('/', function () {
-        return view('home');
+        $clients = Client::where('deleted', 0)->get();
+        $versements = Versement::where('deleted', 0)->get();
+        $retraits = Retrait::where('deleted', 0)->get();
+
+        return view('home', [
+            'client' => $clients->count(),
+            'versement' => $versements->count(),
+            'retrait' => $retraits->count()
+        ]);
     })->name('home');
 
     Route::get('/home', function(){
