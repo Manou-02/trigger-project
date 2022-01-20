@@ -19,8 +19,10 @@ class CreateCompteAuditUpdate extends Migration
             AFTER UPDATE ON clients
             FOR EACH ROW
             BEGIN
-                INSERT INTO audit_comptes(typeAction, date, numCompte, nomClient, soldeAncien, soldeNouveau, user_id)
-                VALUES ('Modification', NOW(), OLD.id, NEW.nomClient, OLD.soldeClient, NEW.soldeClient, NEW.user_id);
+                IF(NEW.deleted = OLD.deleted) THEN
+                    INSERT INTO audit_comptes(typeAction, date, numCompte, nomClient, soldeAncien, soldeNouveau, user_id)
+                    VALUES ('Modification', NOW(), OLD.id, NEW.nomClient, OLD.soldeClient, NEW.soldeClient, NEW.user_id);
+                END IF;
             END;
         ");
     }

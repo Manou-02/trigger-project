@@ -20,8 +20,10 @@ class AuditRetraitUpdate extends Migration
             AFTER UPDATE ON retraits
             FOR EACH ROW
             BEGIN
-                INSERT INTO audit_retraits(typeAction, date , numRet, client_id , montantAnc, montantNouv, user_id)
-                VALUES ('Modification', NOW(), OLD.id, OLD.client_id , OLD.montantRet, NEW.montantRet, NEW.user_id);
+                IF(OLD.deleted = NEW.deleted) THEN
+                    INSERT INTO audit_retraits(typeAction, date , numRet, client_id , montantAnc, montantNouv, user_id)
+                    VALUES ('Modification', NOW(), OLD.id, OLD.client_id , OLD.montantRet, NEW.montantRet, NEW.user_id);
+                END IF;
             END;
         ");
     }

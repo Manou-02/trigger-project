@@ -18,6 +18,7 @@ class CreateClientsTable extends Migration
             $table->string('nomClient');
             $table->double('soldeClient')->default(0);
             $table->timestamps();
+            $table->boolean('deleted')->default(0);
         });
     }
 

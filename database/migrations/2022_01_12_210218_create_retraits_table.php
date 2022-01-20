@@ -19,6 +19,7 @@ class CreateRetraitsTable extends Migration
             $table->foreignId('client_id')->constrained()->onDelete('cascade');
             $table->double('montantRet');
             $table->timestamps();
+            $table->boolean('deleted')->default(0);
         });
     }
 

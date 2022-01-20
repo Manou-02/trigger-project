@@ -19,8 +19,10 @@ class CreateAuditVersementUpdate extends Migration
             AFTER UPDATE ON versements
             FOR EACH ROW
             BEGIN
-                INSERT INTO audit_versements(typeAction, date , numVerse, client_id , montantAncien, montantNouv, user_id)
-                VALUES ('Modification', NOW(), OLD.id, OLD.client_id , OLD.montantVerse, NEW.montantVerse, NEW.user_id);
+                IF(OLD.deleted = NEW.deleted) THEN
+                    INSERT INTO audit_versements(typeAction, date , numVerse, client_id , montantAncien, montantNouv, user_id)
+                    VALUES ('Modification', NOW(), OLD.id, OLD.client_id , OLD.montantVerse, NEW.montantVerse, NEW.user_id);
+                END IF;
             END;
         ");
     }

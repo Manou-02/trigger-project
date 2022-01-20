@@ -19,6 +19,7 @@ class CreateVersementsTable extends Migration
             $table->foreignId('client_id')->constrained()->onDelete('cascade');
             $table->double('montantVerse');
             $table->timestamps();
+            $table->boolean('deleted')->default(0);
         });
     }
 

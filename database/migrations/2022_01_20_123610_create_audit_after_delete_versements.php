@@ -35,7 +35,7 @@ class CreateAuditAfterDeleteVersements extends Migration
     public function down()
     {
         DB::unprepared("
-
+            DROP TRIGGER IF EXISTS delete_versements_trigger;
         ");
     }
 }

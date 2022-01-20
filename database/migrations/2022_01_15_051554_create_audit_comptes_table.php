@@ -16,7 +16,7 @@ class CreateAuditComptesTable extends Migration
         Schema::create('audit_comptes', function (Blueprint $table) {
             $table->id();
             $table->string('typeAction');
-            $table->date('date')->default(now());
+            $table->dateTime('date')->default(now());
             $table->string('numCompte');
             $table->string('nomClient');
             $table->double('soldeAncien');
