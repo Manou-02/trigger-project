@@ -26,7 +26,7 @@ class VersementController extends Controller
      */
     public function create()
     {
-        $clients = Client::all();
+        $clients = Client::where('deleted', 0)->get();
 
         return view('versement.create', compact('clients'));
     }
@@ -108,8 +108,12 @@ class VersementController extends Controller
     public function destroy(Versement $versement)
     {
         //
-        Versement::destroy($versement->id);
+        // Versement::destroy($versement->id);
 
+        Versement::where('id', $versement->id)->update([
+            'deleted' => 1,
+            'user_id' => Auth::user()->id
+        ]);
         return redirect()->back();
 
     }
@@ -120,7 +124,7 @@ class VersementController extends Controller
     public function listeVersement()
     {
 
-        $versements = Versement::all();
+        $versements = Versement::where('deleted', 0)->get();
         return view('versement.liste', compact('versements'));
     }
 

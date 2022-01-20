@@ -18,7 +18,7 @@ class ClientController extends Controller
     public function index()
     {
 
-        $clients = Client::all();
+        $clients = Client::where('deleted', '!=', 1)->get();
         //dd($clients);
         return view('clients.index', compact('clients'));
     }
@@ -110,8 +110,15 @@ class ClientController extends Controller
     public function destroy(Client $client)
     {
         // dd($client->id);
-        Client::destroy($client->id);
+        // Client::destroy($client->id);
+        Client::where('id', $client->id)->update([
+            'deleted' => 1,
+            'user_id' => Auth::user()->id
+        ]);
+
         return redirect()->route('client.index');
+
+
     }
 
     public function details($id){

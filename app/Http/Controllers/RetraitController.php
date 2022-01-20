@@ -27,7 +27,7 @@ class RetraitController extends Controller
      */
     public function create()
     {
-        $clients = Client::all();
+        $clients = Client::where('deleted', 0)->get();
 
         return view('retrait.create', compact('clients'));
     }
@@ -120,7 +120,11 @@ class RetraitController extends Controller
     public function destroy(Retrait $retrait)
     {
         // dd($retrait->id);
-        Retrait::destroy($retrait->id);
+        // Retrait::destroy($retrait->id);
+        Retrait::where('id', $retrait->id)->update([
+            'deleted' => 1,
+            'user_id' => Auth::user()->id
+        ]);
         return redirect()->route('retrait.liste');
     }
 
@@ -129,7 +133,7 @@ class RetraitController extends Controller
     }
 
     public function liste(){
-        $retraits = Retrait::all();
+        $retraits = Retrait::where('deleted', 0)->get();
 
         return view('retrait.liste', compact('retraits'));
     }
