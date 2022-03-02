@@ -39,40 +39,43 @@
                     </a>
 
                 </ul>
-                <li class="flex items-center -ml-3 mt-10 font-bold text-slate-400 text-base">
-                    <i class="fas fa-eye"></i>
-                    <span class="pl-4">Audit</span>
-                </li>
-                <ul>
-                    <a href=" {{ route('operation.index') }} ">
-                        <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2 {{Str::substr(Route::currentRouteName(), 0, 6)  === "operat" ? "active" : "" }}">
-                            <i class="fas fa-exchange-alt"></i>
-                            <span class="ml-4 text-lg font-normal">Opérations</span>
-                        </li>
-                    </a>
+                @if (Auth::user()->admin)
+                    <li class="flex items-center -ml-3 mt-10 font-bold text-slate-400 text-base">
+                        <i class="fas fa-eye"></i>
+                        <span class="pl-4">Audit</span>
+                    </li>
+                    <ul>
+                        <a href=" {{ route('operation.index') }} ">
+                            <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2 {{Str::substr(Route::currentRouteName(), 0, 6)  === "operat" ? "active" : "" }}">
+                                <i class="fas fa-exchange-alt"></i>
+                                <span class="ml-4 text-lg font-normal">Opérations</span>
+                            </li>
+                        </a>
 
-                    <a href=" {{route('audit.versement.index')}} ">
-                        <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2 {{Str::substr(Route::currentRouteName(), 0, 7)  === "audit.v" ? "active" : "" }}">
-                            <i class="fas fa-download"></i>
-                            <span class="ml-4 text-lg font-normal">Versement</span>
-                        </li>
-                    </a>
+                        <a href=" {{route('audit.versement.index')}} ">
+                            <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2 {{Str::substr(Route::currentRouteName(), 0, 7)  === "audit.v" ? "active" : "" }}">
+                                <i class="fas fa-download"></i>
+                                <span class="ml-4 text-lg font-normal">Versement</span>
+                            </li>
+                        </a>
 
-                    <a href=" {{route('audit.retrait.index')}} ">
-                        <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2 {{Str::substr(Route::currentRouteName(), 0, 7)  === "audit.r" ? "active" : "" }}">
-                            <i class="fas fa-share-square"></i>
-                            <span class="ml-4 text-lg font-normal">Retrait</span>
-                        </li>
-                    </a>
+                        <a href=" {{route('audit.retrait.index')}} ">
+                            <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2 {{Str::substr(Route::currentRouteName(), 0, 7)  === "audit.r" ? "active" : "" }}">
+                                <i class="fas fa-share-square"></i>
+                                <span class="ml-4 text-lg font-normal">Retrait</span>
+                            </li>
+                        </a>
 
-                    <a href=" {{route('compte.index')}} ">
-                        <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2 {{Str::substr(Route::currentRouteName(), 0, 6)  === "compte" ? "active" : "" }}">
-                            <i class="fas fa-users"></i>
-                            <span class="ml-4 text-lg font-normal">Compte</span>
-                        </li>
-                    </a>
-                </ul>
+                        <a href=" {{route('compte.index')}} ">
+                            <li class="flex items-center pt-2 w-52 pl-2 py-2 rounded my-2 {{Str::substr(Route::currentRouteName(), 0, 6)  === "compte" ? "active" : "" }}">
+                                <i class="fas fa-users"></i>
+                                <span class="ml-4 text-lg font-normal">Compte</span>
+                            </li>
+                        </a>
+                    </ul>
+                @endif
             </ul>
+
         </div>
     </div>
 </div>

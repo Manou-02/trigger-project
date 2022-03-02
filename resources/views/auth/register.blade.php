@@ -37,6 +37,11 @@
                             <i class="far fa-envelope"></i>
                         </x-inputComponent>
 
+                        <select name='admin' class="">
+                            <option value="false" selected>Utilisateur</option>
+                            <option value="true">Administrateur</option>
+
+                        </select>
                         <x-inputComponent
                             name="password"
                             type="password"
